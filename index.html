@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale =1.0 , minimum-scale=1.0" />
+  <title>Age Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <div class="continner">
+    <span>Age Calculator</span>
+    <p>Enter Your Birthday Here :</p>
+
+    <div class="input-del">
+      <input type="date" id="dob" required />
+      <button onclick="calculateAge()">Calculate</button>
+    </div>
+    <div class="content">
+      <div class="year">
+        <h4 id="year"></h4>
+        <h5>Years</h5>
+      </div>
+
+      <div class="month">
+        <h4 id="month"></h4>
+        <h5>Month</h5>
+      </div>
+
+      <div class="day">
+        <h4 id="day"></h4>
+        <h5>Days</h5>
+      </div>
+    </div>
+  </div>
+  <div class="myname">
+    <h4>Created by chamara priyalal</h4>
+  </div>
+
+  <script>
+    function calculateAge() {
+      const dob = new Date(document.getElementById("dob").value);
+
+      const ageinMS = Date.now() - dob.getTime();
+      const ageDate = new Date(ageinMS);
+      const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+      const months = ageDate.getUTCMonth();
+      const days = ageDate.getUTCDate() - 1;
+
+      document.getElementById("year").innerHTML = age;
+      document.getElementById("month").innerHTML = months;
+      document.getElementById("day").innerHTML = days;
+    }
+  </script>
+</body>
+
+</html>
